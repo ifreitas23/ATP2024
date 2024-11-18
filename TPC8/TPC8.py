@@ -106,10 +106,14 @@ def remPost(redeSocial, id):
 
 #f) `postsPorAutor`, que devolve uma distribuição de posts por autor.
 def postsPorAutor(redeSocial):
+    distrib = {}
     for post in redeSocial:
-            print(f"""Autor: {post["autor"]}
-                            Post: {post}""")
-    return 
+        autor = post["autor"]
+        if autor in distrib:
+            distrib[autor] = distrib[autor] + 1
+        else:
+            distrib[autor] = 1
+    return distrib
 
 #g) `comentadoPor`, que recebe um autor e devolve a lista de posts comentados por esse autor.
 def comentadoPor(redeSocial, autor):
